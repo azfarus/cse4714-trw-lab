@@ -1,0 +1,101 @@
+\documentclass[a4paper,10pt]{article} % classes: article, letter, IEEETrans; options a4paper etc
+
+
+\usepackage{monofill}
+\usepackage[margin=1in]{geometry}
+\usepackage{lipsum}
+\usepackage{verbatim}
+\usepackage{hyperref}
+
+%preamble: imports
+
+\title{\LaTeX Lab 1}
+\author{Mohammad Ishrak Abedin \\ Samnun Azfar}
+\date{\today}
+
+
+
+\begin{document} % -> a latex command starts with backslash [] optional arguments, {} mandatory arguments
+% main document text and formatting
+
+
+\begin{titlepage}
+    \maketitle 
+\end{titlepage}
+
+\tableofcontents
+
+\begin{abstract}
+    This Lab demonstrates the basics of \LaTeX. \lipsum[1]
+\end{abstract}
+
+
+
+\section{Paragraph and Linebreaks}
+
+
+\textbf{Part 1:} \lipsum[1]\lipsum[2] % no pararaph indentation, double linebreak causes par indentation for part 2
+
+\textbf{Part 2:} \lipsum[1]\par\lipsum[2] % \par command creates paragraph indentation
+
+\newpage %\pagebreak can be used as well, pagebreak acts as a newpage suggestion whereas \newpage forces a newpage at the given position.
+
+\textbf{Part 3:} \lipsum[1]\\\lipsum[2] % linebreak but no paragraph indentation
+
+\textbf{Part 4:} \lipsum[1]\newline\lipsum[2]\\ % same effect as \\
+
+
+% bolds , emphs , underlines
+
+\section{Bold, Emph and Underlines}
+
+\noindent
+\textbf{This is a Bold Text.}\\
+\textit{This is an Italic Text.}\\
+\underline{This text is underlined.}\\
+\emph{This is an emphasized Text}\\
+\textit{Here the word \emph{emphasize} is emphasized within the Italic text.}
+
+
+%Comments: the  comment env requires the package "verbatim"
+
+\section{Comments \& Text Sizes \& Centering}
+
+\subsection{Comments}
+A comment environment exists here but the compiler completely ignores the block.
+\begin{comment}
+    This is line 1 of a comment.
+    This is line 2 of a comment.
+\end{comment}
+
+\subsection{Text Sizes and Centering} \label{subsection:size-centering}
+
+\begin{center}
+    \tiny  This is tiny-er than small. 
+    \small Small is necessary.
+    \large But \Large Big \LARGE is \Huge beautiful.
+\end{center}
+
+\section{Ordered and Unordered Lists}
+
+\newpage
+\subsection{Ordered List}
+\begin{enumerate}
+    \item Item 1
+    \item Item 2
+    \item Item 3
+\end{enumerate}
+
+\subsection{Unordered List}
+\begin{itemize}
+    \item Item 1
+    \item Item 2
+    \item Item 3
+\end{itemize}
+
+\section{Referencing Previous Sections}
+You have learnt about centering an environment in \autoref{subsection:size-centering}.
+
+
+
+\end{document}
