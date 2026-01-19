@@ -1,0 +1,95 @@
+\documentclass[a4paper,10pt]{article} % classes: article, letter, IEEETrans; options a4paper etc
+
+
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb}
+
+%preamble: imports
+
+\title{\LaTeX{} Lab 2: Mathematical Expressions}
+\author{Mohammad Ishrak Abedin \\ Samnun Azfar}
+\date{\today}
+
+
+
+\begin{document} % -> a latex command starts with backslash [] optional arguments, {} mandatory arguments
+% main document text and formatting
+
+
+\begin{titlepage}
+    \maketitle 
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\begin{abstract}
+    This Lab demonstrates how to write and format mathematical expressions inside \LaTeX.
+\end{abstract}
+
+
+\section{Inline and Display Math Environments}
+
+
+\subsection{Inline Math}
+This is an inline math: $a^2 + b^2 = c^2 $, wrapped using the \$..\$ symbols. \\
+This is an inline math: \(a^2 + b^2 = c^2 \), wrapped using the \verb|\(..\)| symbols. \\
+Using \texttt{math} environment:
+\begin{math}
+e^{i\pi} + 1 = 0
+\end{math}
+
+\subsection{Display Math}
+
+\begin{itemize}
+    \item Using \verb|\[..]\|:
+    \[
+         e^{i\pi} + 1 = 0
+    \]
+    \item Using the \texttt{equation} environment:
+        \begin{equation}
+            e^{i\pi} + 1 = 0 
+        \end{equation} 
+        \begin{equation}
+            e^{i\theta} = \cos(\theta) + i\sin(\theta)
+        \end{equation}
+
+
+        \item Using the \texttt{equation*} environment:
+        \begin{equation*}
+            e^{i\pi} + 1 = 0 
+        \end{equation*}
+        \begin{equation*}
+            e^{i\theta} = \cos(\theta) + i\sin(\theta)
+        \end{equation*}
+    \end{itemize}
+
+\section{Operators, Functions and Symbols}
+
+% Basic operators
+\begin{equation}
+    a \times b, \quad a \cdot b, \quad x^2, \quad y_1, \quad \frac{a}{b}
+\end{equation}
+
+% Trig and calculus
+\begin{equation}
+    \sin \theta, \quad \cos \theta, \quad \int_0^1 x^2 dx, \quad \sum_{n=1}^\infty \frac{1}{n^2}, \quad \lim_{x \to 0} \frac{\sin x}{x}    
+\end{equation}
+
+
+% Inequalities
+\begin{equation}
+    x = y, \quad x \neq y, \quad x > y, \quad x < y, \quad x \ge y, \quad x \le y 
+\end{equation}
+
+
+% Text in math
+\begin{equation}
+    f(x) = x^2 \quad \text{for all } x \in \mathbb{R}
+\end{equation}
+
+
+
+
+\end{document}
