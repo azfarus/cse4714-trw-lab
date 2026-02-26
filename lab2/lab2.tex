@@ -1,94 +1,171 @@
-\documentclass[a4paper,10pt]{article} % classes: article, letter, IEEETrans; options a4paper etc
+\documentclass[a4paper,12pt]{article}
 
-
-\usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
+% preamble 
 \usepackage{amsmath,amssymb}
 
-%preamble: imports
-
-\title{\LaTeX{} Lab 2: Mathematical Expressions}
+\title{Lab 2 : Mathematical Expressions in \LaTeX}
 \author{Mohammad Ishrak Abedin \\ Samnun Azfar}
 \date{\today}
 
+\begin{document}
 
-
-\begin{document} % -> a latex command starts with backslash [] optional arguments, {} mandatory arguments
-% main document text and formatting
-
-
-\begin{titlepage}
-    \maketitle 
+\begin{titlepage}  
+\maketitle
 \end{titlepage}
 
-\tableofcontents
-\newpage
+\section{Inline Math}
 
-\begin{abstract}
-    This Lab demonstrates how to write and format mathematical expressions inside \LaTeX.
-\end{abstract}
-
-
-\section{Inline and Display Math Environments}
-
-
-\subsection{Inline Math}
-This is an inline math: $a^2 + b^2 = c^2 $, wrapped using the \$..\$ symbols. \\
-This is an inline math: \(a^2 + b^2 = c^2 \), wrapped using the \verb|\(..\)| symbols. \\
-Using \texttt{math} environment:
+This line has an eqn \( \sin^{2}x + \cos^{2}x = var_{i}^2 \) \\
+This line has an eqn $ \sin^{2}x + \cos^{2}x = var_{i}^2 $ \\
+This line has an eqn 
 \begin{math}
-e^{i\pi} + 1 = 0
+\sin^{2}x + \cos^{2}x = var_{i}^2 
 \end{math}
 
-\subsection{Display Math}
 
-\begin{itemize}
-    \item Using \verb|\[..]\|:
-    \[
-         e^{i\pi} + 1 = 0
-    \]
-    \item Using the \texttt{equation} environment:
-        \begin{equation}
-            e^{i\pi} + 1 = 0 
-        \end{equation} 
-        \begin{equation}
-            e^{i\theta} = \cos(\theta) + i\sin(\theta)
-        \end{equation}
+\section{Display Math}
+This section shows display math envs:
+\begin{displaymath}
+    \sin^{2}x + \cos^{2}x = var_{i}^2
+\end{displaymath}
 
+This section shows display math envs:
+$$    \sin^{2}x + \cos^{2}x = var_{i}^2 $$
 
-        \item Using the \texttt{equation*} environment:
-        \begin{equation*}
-            e^{i\pi} + 1 = 0 
-        \end{equation*}
-        \begin{equation*}
-            e^{i\theta} = \cos(\theta) + i\sin(\theta)
-        \end{equation*}
-    \end{itemize}
+This section shows display math envs:
+\[    \sin^{2}x + \cos^{2}x = var_{i}^2 \]
 
-\section{Operators, Functions and Symbols}
-
-% Basic operators
+This section shows display math envs:
 \begin{equation}
-    a \times b, \quad a \cdot b, \quad x^2, \quad y_1, \quad \frac{a}{b}
+    \sin^{2}x + cos^{2}x = var_{i}^2
 \end{equation}
 
-% Trig and calculus
+\section{Math Commands}
+
+
+\subsection{Commands}
 \begin{equation}
-    \sin \theta, \quad \cos \theta, \quad \int_0^1 x^2 dx, \quad \sum_{n=1}^\infty \frac{1}{n^2}, \quad \lim_{x \to 0} \frac{\sin x}{x}    
+    \zeta(s)=\sum_{n=1}^{\infty}\frac{1}{n^s}
 \end{equation}
 
-
-% Inequalities
 \begin{equation}
-    x = y, \quad x \neq y, \quad x > y, \quad x < y, \quad x \ge y, \quad x \le y 
+    e = \lim_{x\to\infty} (1 + \frac{1}{x})^x
 \end{equation}
 
-
-% Text in math
 \begin{equation}
-    f(x) = x^2 \quad \text{for all } x \in \mathbb{R}
+   \left[  1 = \int_0^e\frac{1}{e}dx \right]
 \end{equation}
 
+\begin{equation}
+    e^n = \prod_{i=1}^{n}e
+\end{equation}
+
+\section{Symbols}
+
+Zeta: $\zeta$ \\
+Theta: $\cos\theta$ and $\Theta$ \\
+Mathcal: $\mathcal{RABCD}$ \\
+Mathfrac: $\mathfrak{Rabcd}$ \\
+MathBB: $\mathbb{R}$
+MathBF: $\mathbf{R}$
+
+
+\section{Math Environments}
+
+\subsection{Equation Env}
+\paragraph{Numbered:}
+\begin{equation}
+    \zeta(s)=\sum_{n=1}^{\infty}\frac{1}{n^s}
+\end{equation}
+\paragraph{Unnumbered:}
+\begin{equation*}
+    \zeta(s)=\sum_{n=1}^{\infty}\frac{1}{n^s}
+\end{equation*}
+
+\subsection{Multiline}
+\begin{multline}
+    a + b + c + d + e + b + c + d + e + b + c + d + e\\ 
+    a + b + c + d + e + b + c + d + e + b + c + d + e\\ 
+    + f + g + h + i + b + c + d + e + b + c + d + e = 1
+\end{multline}
+
+\subsection{Split and Aligned}
+
+\paragraph{Split}
+\begin{equation}
+    f(x) = \left\{ \begin{split}
+        a + b = 10&  \quad \text{if} \ x > 10\\
+        c + d = \  9& \quad  \text{if} \ x \leq 10
+    \end{split} \right   
+\end{equation}
+
+\paragraph{Align}
+
+\begin{align} % alignment specifiers using the ampersand sign
+a &= b + c \\
+  &= d + e
+\end{align} 
+
+\paragraph{Gather}
+
+\begin{gather} % no alignment specification
+    \sin{x} + \cos{x} = 1.414 \\
+    \sin{x} + \cos{x} = 1.4 
+\end{gather}
+
+\section{Vectors and Matrices}
+
+\subsection{Vector}
+A vector symbol could be \begin{equation}\vec{v} \times \vec{u} = \left[ \begin{split}
+    0 \\
+    1
+\end{split} \right] \end{equation}
+
+\subsection{Matrices}
+
+\subsubsection{Pmatrix}
+
+\begin{equation}
+    \begin{pmatrix}
+        0 & 1 & 2\\
+        0 & 1 & 2\\
+        0 & 1 & 2
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 1 & 2\\
+        0 & 1 & 2\\
+        0 & 1 & 2
+    \end{pmatrix}
+
+\end{equation}
+
+\subsubsection{Bmatrix}
+\begin{equation}
+    \begin{bmatrix}
+        0 & 1 & 2\\
+        0 & 1 & 2\\
+        0 & 1 & 2
+    \end{bmatrix}
+    \begin{Bmatrix}
+        0 & 1 & 2\\
+        0 & 1 & 2\\
+        0 & 1 & 2
+    \end{Bmatrix}
+
+\end{equation}
+\subsubsection{Vmatrix}
+\begin{equation}
+    \begin{vmatrix}
+        0 & 1 & 2\\
+        0 & 1 & 2\\
+        0 & 1 & 2
+    \end{vmatrix}
+    \begin{Vmatrix}
+        0 & 1 & 2\\
+        0 & 1 & 2\\
+        0 & 1 & 2
+    \end{Vmatrix}_{i}^2
+\end{equation}
 
 
 
