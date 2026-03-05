@@ -1,0 +1,125 @@
+\documentclass[a4paper,12pt]{article}
+
+% preamble 
+\usepackage{array}
+\usepackage{float}
+
+
+\setlength{\arrayrulewidth}{2}
+\setlength{\tabcolsep}{10pt}
+\setlength{\arraystretch}{1}
+
+
+\newcolumntype{L}{>{\raggedleft\arraybackslash}m{.3\linewidth}}
+\newcolumntype{C}{>{\centering\arraybackslash}m{0.3\linewidth}}
+\newcolumntype{R}{>{\raggedright\arraybackslash}m{0.3\linewidth}}
+
+\title{Lab 4 : Tables in \LaTeX}
+\author{Mohammad Ishrak Abedin \\ Samnun Azfar}
+\date{\today}
+
+\begin{document}
+
+\begin{titlepage}  
+\maketitle
+\end{titlepage}
+
+\section{Basic Table}
+
+\subsection{Basic Table with centered columns}
+\begin{center}
+    \begin{tabular}{ || c | c | c ||}
+        a & b & c \\
+        \hline
+        \hline
+        a & b & c\\[1cm] % vertical space
+        \hline
+        a & b & c 
+        
+    \end{tabular}
+\end{center}
+
+\subsection{Other Column Specifiers}
+These columnwidths scale automatically.
+\begin{center}
+    \begin{tabular}{ || l | c | r ||}
+        Left Justified & centered & Right Justified \\
+        \hline
+        \hline
+        a & b & c\\[1cm] % vertical space
+        \hline
+        a & b & c 
+        
+    \end{tabular}
+\end{center}
+
+\subsection{Table with Fixed Column Width}
+You have to use \verb|\usepackage{array}| for \texttt{m, p or b} to work.
+\begin{center}
+    \begin{tabular}{ || m{.3\linewidth} | p{.3\linewidth} | b{.3\linewidth} ||}
+        \hline
+        m column & p column & b column \\
+        \hline
+        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & {\tiny This is top aligned This is top aligned This is top aligned This is top aligned } & This is bottom aligned This is bottom \newline aligned This is bottom aligned This is bottom aligned  \\
+        \hline
+        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & b & c \\
+        \hline
+        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & b & c \\
+        \hline
+        
+    \end{tabular}
+\end{center}
+
+\begin{table}[H]
+    \begin{tabular}{ || m{.3\linewidth} | p{.3\linewidth} | b{.3\linewidth} ||}
+        \hline
+        m column & p column & b column \\
+        \hline
+        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & {\tiny This is top aligned This is top aligned This is top aligned This is top aligned } & This is bottom aligned This is bottom \newline aligned This is bottom aligned This is bottom aligned  \\
+        \hline
+        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & b & c \\
+        \hline
+        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & b & c \\
+        \hline
+        
+    \end{tabular}
+    \caption{This is a floating table, behaves like a floating figure and has a catption.}
+\end{table}
+
+
+\section{Custom Column Types}
+
+\subsection{Without definition}
+
+\begin{center}
+    \begin{tabular}{ || >{\raggedleft\arraybackslash}m{.3\linewidth} | >{\centering\arraybackslash}m{.3\linewidth} | >{\raggedright\arraybackslash}m{.3\linewidth} ||}
+        \hline
+        left justified fixed length column & centered fixed length column & right justified fixed length column \\
+        \hline
+        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. \\
+        \hline
+        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. \\
+        \hline
+        
+        
+    \end{tabular}
+\end{center}
+\subsection{With definition}
+
+\begin{center}
+    \begin{tabular}{ || L | C | R ||}
+        \hline
+        left justified fixed length column & centered fixed length column & right justified fixed length column \\
+        \hline
+        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. \\
+        \hline
+        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. \\
+        \hline
+        
+        
+    \end{tabular}
+\end{center}
+
+
+
+\end{document}
