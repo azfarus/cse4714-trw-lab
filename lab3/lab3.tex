@@ -1,0 +1,136 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{ragged2e}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{graphicx,lipsum}
+\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{rotating}
+
+\DeclareGraphicsExtensions{.png,.jpg}
+\graphicspath{{image_folder}}
+
+
+\title{Lab 3 :Figures in \LaTeX}
+\author{Mohammad Ishrak Abedin \\ Samnun Azfar}
+\date{\today}
+
+
+
+\begin{document}
+
+
+\begin{titlepage}
+    \maketitle
+    \listoffigures
+    
+\end{titlepage}
+
+
+\section{Including Basic Images}
+\subsection{With Extension}
+\lipsum[1]
+\begin{figure}[H]
+    \centering
+    \caption{Fig 1}
+    \includegraphics[width=0.2\linewidth]{ImageA.png}
+    \label{fig:1}
+\end{figure}
+
+\subsection{Without Extension} % demo for widths and scale
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{ImageA}
+    \caption{Fig: 2}
+    \label{fig:2}
+\end{figure}
+
+\subsection{Rotation}
+\lipsum[1]
+\begin{figure}[H]
+    \centering
+    \rotatebox[origin=tr]{35}{\includegraphics[width=0.2\linewidth]{ImageA.png}}
+    \caption{Fig: 3}
+    \label{fig:3}
+\end{figure}
+I will now reference to \autoref{fig:1}.
+
+\section{WrapFigure}
+
+\begin{wrapfigure}{l}{.5\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{ImageB}
+    \caption{Image of B}
+    \label{fig:B}
+\end{wrapfigure}
+\lipsum[1-2]
+
+\begin{wrapfigure}{r}{.5\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{ImageC}
+    \caption{Image of C}
+    \label{fig:C}
+\end{wrapfigure}
+\lipsum[1-2]
+
+
+\section{SubFigure}
+\begin{wrapfigure}{l}{.7\linewidth}
+    \centering
+    \begin{subfigure}{.3\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{ImageA}
+        \caption{Img A}
+        \label{subfg:A}
+    \end{subfigure}
+    \begin{subfigure}{.3\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{ImageB}
+        \caption{Img B}
+        \label{subfg:B}
+    \end{subfigure}
+    \begin{subfigure}{.3\linewidth}
+
+        \centering
+        \includegraphics[width=\linewidth]{ImageC}
+        \caption{Img C}
+        \label{subfg:C}
+    \end{subfigure}
+    \caption{Subfigure Demo}
+    \label{fig:subfig}
+\end{wrapfigure}
+\lipsum[1]
+
+Now i can refer to  the subfigures such as \autoref{subfg:A} or the whole wrapfig as \autoref{fig:subfig}
+
+
+\begin{sidewaysfigure}
+\centering
+\begin{subfigure}{.2\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{ImageB}
+    \caption{B sideways}
+    \label{sideways}
+    
+\end{subfigure}
+
+\begin{subfigure}{.2\linewidth}
+    
+    \centering
+    \includegraphics[width=\textwidth]{ImageB}
+    \caption{B sideways}
+    \label{sideways}
+\end{subfigure}
+\caption{This is a sideways figure.}
+\end{sidewaysfigure}
+    
+
+
+
+
+
+
+
+\end{document}
