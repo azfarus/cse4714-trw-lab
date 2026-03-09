@@ -3,19 +3,23 @@
 % preamble 
 \usepackage{array}
 \usepackage{float}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{longtable}
 
 
 \setlength{\arrayrulewidth}{2pt}
 \setlength{\tabcolsep}{10pt}
 \renewcommand{\arraystretch}{2}
-% \setlength{\arraystretch}{1}
+
 
 
 \newcolumntype{L}{>{\raggedleft\arraybackslash}m{.3\linewidth}}
 \newcolumntype{C}{>{\centering\arraybackslash}m{0.3\linewidth}}
 \newcolumntype{R}{>{\raggedright\arraybackslash}m{0.3\linewidth}}
 
-\title{Lab 4 : Tables in \LaTeX}
+\title{Lab 4: Tables in \LaTeX}
 \author{Mohammad Ishrak Abedin \\ Samnun Azfar}
 \date{\today}
 
@@ -54,6 +58,7 @@ These columnwidths scale automatically.
     \end{tabular}
 \end{center}
 
+\newpage
 \subsection{Table with Fixed Column Width}
 You have to use \verb|\usepackage{array}| for \texttt{m, p or b} to work.
 \begin{center}
@@ -61,32 +66,25 @@ You have to use \verb|\usepackage{array}| for \texttt{m, p or b} to work.
         \hline
         m column & p column & b column \\
         \hline
-        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & {\tiny This is top aligned This is top aligned This is top aligned This is top aligned } & This is bottom aligned This is bottom \newline aligned This is bottom aligned This is bottom aligned  \\
+        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & This is top aligned This is top aligned This is top aligned This is top aligned  & This is bottom aligned This is bottom \newline aligned This is bottom aligned This is bottom aligned  \\
         \hline
-        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & b & c \\
-        \hline
-        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & b & c \\
-        \hline
-        
     \end{tabular}
 \end{center}
 
+\subsection{The \texttt{table} environment}
 \begin{table}[H]
     \begin{tabular}{ || m{.3\linewidth} | p{.3\linewidth} | b{.3\linewidth} ||}
         \hline
         m column & p column & b column \\
         \hline
-        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & {\tiny This is top aligned This is top aligned This is top aligned This is top aligned } & This is bottom aligned This is bottom \newline aligned This is bottom aligned This is bottom aligned  \\
-        \hline
-        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & b & c \\
-        \hline
-        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & b & c \\
+        THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & This is top aligned This is top aligned This is top aligned This is top aligned  & This is bottom aligned This is bottom \newline aligned This is bottom aligned This is bottom aligned  \\
         \hline
         
     \end{tabular}
     \caption{This is a floating table, behaves like a floating figure and has a catption.}
 \end{table}
-
+ 
+\newpage
 
 \section{Custom Column Types}
 
@@ -95,7 +93,7 @@ You have to use \verb|\usepackage{array}| for \texttt{m, p or b} to work.
 \begin{center}
     \begin{tabular}{ || >{\raggedleft\arraybackslash}m{.3\linewidth} | >{\centering\arraybackslash}m{.3\linewidth} | >{\raggedright\arraybackslash}m{.3\linewidth} ||}
         \hline
-        left justified fixed length column & centered fixed length column & right justified fixed length column \\
+        right justified fixed length column & centered fixed length column & left justified fixed length column \\
         \hline
         THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. & THE LAZY CAT JUMPED OVER SOMETHING WHICH I AM NOT AWARE OF. \\
         \hline
@@ -122,5 +120,105 @@ You have to use \verb|\usepackage{array}| for \texttt{m, p or b} to work.
 \end{center}
 
 
+\section{Tables with the Tabularx Package}
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{.7\textwidth}{ |c|>{\centering\arraybackslash}X|c|}
+        \hline
+        a & b & c \\
+        \hline        
+    \end{tabularx}
+    \caption{This is a tabularx table}
+\end{table}
+
+\section{Multicolumn and Multirow}
+You have to use the \verb|multirow| package to combine rows and columns.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        a & b & c \\ \hline 
+        \multicolumn{2}{|R|}{\multirow{2}{*}{a \& b}} & c \\ \cline{3-3}
+        \multicolumn{3}{|c|}{}  \\ \hline
+        a & b & c \\ \hline
+        a & b & c \\ \hline
+        a & b & c \\ \hline
+        a & b & c \\ \hline
+
+    \end{tabular}
+    
+\end{table}
+
+\newpage
+\section{Booktabs Table}
+Use the package \verb|booktabs|.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccc}
+        \toprule
+        header1 & header2 & header3 \\
+        \midrule
+        a & b & c \\
+        a & b & c \\
+        a & b & c \\
+        a & b & c \\
+        a & b & c \\
+        a & b & c \\
+        a & b & c \\
+        a & b & c \\
+        a & b & c \\
+        a & b & c \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{Longtable}
+Use the package \verb|longtable|. This is a long table that spans multiple pages.
+
+
+\begin{longtable}{LCR}
+        \toprule
+        Firstpage header1 & Firstpage Header2 & Firstpage header3 \\
+        \midrule
+        \endfirsthead
+         
+        \toprule
+        Subsequentpage header1 & Subsequentpage Header2 & Subsequentpage header3 \\
+        \midrule
+        \endhead
+
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+        1 & 2 & 3 \\
+
+        \bottomrule
+
+
+\end{longtable}
 
 \end{document}
